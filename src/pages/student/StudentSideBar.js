@@ -8,6 +8,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import DownloadIcon from '@mui/icons-material/Download'; // Add the Download icon
 
 const StudentSideBar = () => {
     const location = useLocation();
@@ -38,6 +39,13 @@ const StudentSideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Complain" />
                 </ListItemButton>
+                {/* Add the new Download Study Material link */}
+                <ListItemButton component={Link} to="/Student/study">
+                    <ListItemIcon>
+                        <DownloadIcon color={location.pathname.startsWith("/Student/study") ? 'primary' : 'inherit'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Download Study Material" />
+                </ListItemButton>
             </React.Fragment>
             <Divider sx={{ my: 1 }} />
             <React.Fragment>
@@ -58,7 +66,7 @@ const StudentSideBar = () => {
                 </ListItemButton>
             </React.Fragment>
         </>
-    )
+    );
 }
 
-export default StudentSideBar
+export default StudentSideBar;
