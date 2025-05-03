@@ -119,7 +119,7 @@ const StudentStudy = () => {
                 </List>
             ) : (
                 <Typography variant="body1" sx={{ mt: 2 }}>
-                    No study materials available for this subject.
+                    No study materials available for Listed subjects.
                 </Typography>
             )}
 

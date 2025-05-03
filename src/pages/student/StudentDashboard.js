@@ -18,6 +18,7 @@ import StudentSubjects from './StudentSubjects';
 import ViewStdAttendance from './ViewStdAttendance';
 import StudentComplain from './StudentComplain';
 import StudentStudy from './StudyMaterial';
+import FeeUpload from './FeeUpload';
 import Logout from '../Logout'
 import AccountMenu from '../../components/AccountMenu';
 import { AppBar, Drawer } from '../../components/styles';
@@ -76,6 +77,7 @@ const StudentDashboard = () => {
                         <Route path='*' element={<Navigate to="/" />} />
                         <Route path="/Student/dashboard" element={<StudentHomePage />} />
                         <Route path="/Student/profile" element={<StudentProfile />} />
+                        <Route path="/student/fee-upload" element={<FeeUpload />} />
 
                         <Route path="/Student/subjects" element={<StudentSubjects />} />
                         <Route path="/Student/attendance" element={<ViewStdAttendance />} />
