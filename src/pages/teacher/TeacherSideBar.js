@@ -14,6 +14,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
+import NoteIcon from '@mui/icons-material/Note'; // Importing icon for Diary
 import { useSelector } from 'react-redux';
 
 const TeacherSideBar = () => {
@@ -44,6 +45,22 @@ const TeacherSideBar = () => {
                         <UploadFileIcon color={location.pathname.startsWith("/Teacher/upload-material") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
                     <ListItemText primary="Upload Material" />
+                </ListItemButton>
+
+                {/* New Upload Timetable section */}
+                <ListItemButton component={Link} to="/Teacher/upload-timetable">
+                    <ListItemIcon>
+                        <UploadFileIcon color={location.pathname.startsWith("/Teacher/upload-timetable") ? 'primary' : 'inherit'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Upload Timetable" />
+                </ListItemButton>
+
+                {/* New Write Diary section */}
+                <ListItemButton component={Link} to="/Teacher/write-diary">
+                    <ListItemIcon>
+                        <NoteIcon color={location.pathname.startsWith("/Teacher/write-diary") ? 'primary' : 'inherit'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Write Diary" />
                 </ListItemButton>
 
                 <ListItemButton component={Link} to="/Teacher/complain">

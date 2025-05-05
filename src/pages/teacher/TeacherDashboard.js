@@ -12,18 +12,20 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import TeacherSideBar from './TeacherSideBar';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Logout from '../Logout'
+import Logout from '../Logout';
 import AccountMenu from '../../components/AccountMenu';
 import { AppBar, Drawer } from '../../components/styles';
 import StudentAttendance from '../admin/studentRelated/StudentAttendance';
-import TeacherStudy from './TeacherStudy';
+import StudentExamMarks from '../admin/studentRelated/StudentExamMarks';
 
 import TeacherClassDetails from './TeacherClassDetails';
 import TeacherComplain from './TeacherComplain';
 import TeacherHomePage from './TeacherHomePage';
 import TeacherProfile from './TeacherProfile';
 import TeacherViewStudent from './TeacherViewStudent';
-import StudentExamMarks from '../admin/studentRelated/StudentExamMarks';
+import TeacherStudy from './TeacherStudy';
+import UploadTimetable from './UploadTimetable';
+import WriteDiary from './WriteDiary';
 
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(true);
@@ -76,28 +78,26 @@ const TeacherDashboard = () => {
                     <Toolbar />
                     <Routes>
                         <Route path="/" element={<TeacherHomePage />} />
-                        <Route path='*' element={<Navigate to="/" />} />
+                        <Route path="*" element={<Navigate to="/" />} />
                         <Route path="/Teacher/dashboard" element={<TeacherHomePage />} />
                         <Route path="/Teacher/profile" element={<TeacherProfile />} />
-
                         <Route path="/Teacher/complain" element={<TeacherComplain />} />
-
                         <Route path="/Teacher/class" element={<TeacherClassDetails />} />
                         <Route path="/Teacher/class/student/:id" element={<TeacherViewStudent />} />
-
                         <Route path="/Teacher/class/student/attendance/:studentID/:subjectID" element={<StudentAttendance situation="Subject" />} />
                         <Route path="/Teacher/class/student/marks/:studentID/:subjectID" element={<StudentExamMarks situation="Subject" />} />
                         <Route path="/Teacher/upload-material" element={<TeacherStudy />} />
-
+                        <Route path="/Teacher/upload-timetable" element={<UploadTimetable />} />
+                        <Route path="/Teacher/write-diary" element={<WriteDiary />} />
                         <Route path="/logout" element={<Logout />} />
                     </Routes>
                 </Box>
             </Box>
         </>
     );
-}
+};
 
-export default TeacherDashboard
+export default TeacherDashboard;
 
 const styles = {
     boxStyled: {
@@ -116,7 +116,7 @@ const styles = {
         px: [1],
     },
     drawerStyled: {
-        display: "flex"
+        display: 'flex'
     },
     hideDrawer: {
         display: 'flex',
@@ -124,4 +124,4 @@ const styles = {
             display: 'none',
         },
     },
-}
+};
