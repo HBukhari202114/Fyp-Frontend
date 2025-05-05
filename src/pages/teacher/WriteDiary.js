@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Typography, TextField, Button, Paper } from '@mui/material';
+import { Typography, TextField, Button, Paper, Alert } from '@mui/material';
 import axios from 'axios';
 
 const WriteDiary = () => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [error, setError] = useState('');  // State for error message
+  const [success, setSuccess] = useState('');  // State for success message
 
   const handleDiarySubmit = async () => {
     if (!subject || !message) return alert("All fields are required!");
@@ -14,13 +16,15 @@ const WriteDiary = () => {
         subject,
         message,
       });
-      alert("✅ Diary entry created successfully!");
+      setSuccess("✅ Diary entry created successfully!");  // Success message
+      setError('');  // Clear any previous error
       console.log(res.data);
       setSubject('');
       setMessage('');
     } catch (error) {
       console.error(error);
-      alert("❌ Failed to submit diary");
+      setError("❌ Failed to submit diary");  // Error message
+      setSuccess('');  // Clear any previous success message
     }
   };
 
@@ -46,6 +50,18 @@ const WriteDiary = () => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
+      {/* Conditionally render success alert */}
+      {success && (
+        <Alert severity="success" sx={{ mt: 2 }}>
+          {success}
+        </Alert>
+      )}
+      {/* Conditionally render error alert */}
+      {error && (
+        <Alert severity="error" sx={{ mt: 2 }}>
+          {error}
+        </Alert>
+      )}
       <Button
         variant="contained"
         color="success"
